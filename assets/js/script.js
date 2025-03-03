@@ -107,7 +107,7 @@ async function menuju(){
     window.jawaban = jawaban;
     pesanwhatsapp = jawaban;
     await swals.fire('OK!', 'Kirim jawabannya ke WhatsApp aku, ya!', 'success');
-    window.location = "https://api.whatsapp.com/send?phone=089505699702&text=" + pesanwhatsapp;
+    window.location = "https://api.whatsapp.com/send?phone=6289505699702&text=" + pesanwhatsapp;
     tombol();
   } else {
     await swals.fire('Ups!', 'Jawaban tidak boleh kosong atau lebih dari 18 karakter, ya!');jawab();
