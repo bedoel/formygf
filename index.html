@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+  <meta charset="UTF-8" /><meta
+    content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5"
+    name="viewport"
+  /><meta content="IE=edge" http-equiv="X-UA-Compatible" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+  <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script
+    src="https://kit.fontawesome.com/4f3ce16e3e.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <head>
+    <title>Terimakasih Telah Hadir di dalam Hidupku</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://malasid.github.io/favicon.png"
+    />
+    <meta name="description" content="HTML Bucin Malas.id" />
+  </head>
+  <style>
+    :root {
+      --ukuran-teks: 16px;
+      --gaya-font: "Nunito Sans", sans-serif;
+      --gaya-font3: "Nerko One", cursive;
+    }
+    .hidden {
+      display: none;
+    }
+    .slideshow {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+    }
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    .slideshow img.active {
+      display: block;
+    }
+    /* Style untuk modal */
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .modal video {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #Tombol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+  <body>
+    <audio src="assets/music/rahma.mp3" id="linkmp3" class="sembunyi"></audio>
+
+    <div id="bodyblur"><img src="" id="wallpaper" /></div>
+
+    <div id="Content">
+      <div id="ftAwal">
+        <img src="https://feeldreams.github.io/heart.png" id="ftoAwal" />
+        <div class="slideshow" style="display: none" id="slideShow">
+          <img src="assets/img/love1.jpeg" id="ftoAkhir" class="active" />
+          <img src="assets/img/love2.jpeg" id="ftoAkhir" />
+          <img src="assets/img/love3.jpeg" id="ftoAkhir" />
+          <img src="assets/img/love4.jpeg" id="ftoAkhir" />
+          <img src="assets/img/love5.jpeg" id="ftoAkhir" />
+        </div>
+      </div>
+
+      <div id="loveIn">
+        <label class="lovein">❤️</label>
+      </div>
+      <p id="ket">Haloo Byy&#128075;, Pencet LOVEnya!</p>
+
+      <div class="kumpulan">
+        <img src="assets/img/bg.jpeg" id="wallpaper1" />
+
+        <img src="" id="ftoAkhir" />
+      </div>
+
+      <div>
+        <blockquote id="bq">
+          <p id="kalimat" style="text-align: center"></p>
+        </blockquote>
+        <div id="videoModal" class="modal hidden">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <video controls autoplay playsinline muted>
+              <source src="assets/video/vid.mp4" type="video/mp4" />
+              Browser Anda tidak mendukung pemutar video.
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div id="Tombol">
+        <button id="openVideo">&#127916; Tonton Video</button>
+        <br />
+        <a id="By">&#128140; Balas</a>
+      </div>
+    </div>
+
+    <script>
+      const body = document.querySelector("body");
+      const swalst = Swal.mixin({
+        timer: 2500,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        timerProgressBar: true,
+        imageHeight: 90,
+      });
+      audio = new Audio("" + linkmp3.src);
+      ftganti = 0;
+      fungsi = 0;
+      fungsiAwal = 0;
+      function berjatuhan() {
+        const heart = document.createElement("div");
+        heart.className = "fas fa-heart";
+        heart.style.left = Math.random() * 90 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        body.appendChild(heart);
+      }
+      setInterval(function name(params) {
+        var heartArr = document.querySelectorAll(".fa-heart");
+        if (heartArr.length > 100) {
+          heartArr[0].remove();
+        }
+      }, 100);
+      Content.style = "opacity:1;margin-top:14vh";
+      const swals = Swal.mixin({
+        allowOutsideClick: false,
+        cancelButtonColor: "#FF0040",
+        imageHeight: 80,
+      });
+      const inip = [];
+      const iniwp = [];
+      iden = 1;
+      iniwp[1] = wallpaper1.src;
+      wallpaper.src = iniwp[1];
+      iniwp[2] = wallpaper1.src;
+      iniwp[3] = wallpaper1.src;
+      iniwp[4] = wallpaper1.src;
+      iniwp[5] = wallpaper1.src;
+      iniwp[6] = wallpaper1.src;
+
+      inip[1] =
+        "<span style='font-family:var(--gaya-font); !important'>Aku nggak pernah nyangka bisa ketemu wanita seperti kamu, <br> <span style='color:pink;''>Rahman Nur Afifah</span>💖.</span>";
+      inip[2] =
+        "<span style='font-family:var(--gaya-font); !important'>Aku bersyukur banget punya kamu sekarang.</span>";
+      inip[3] =
+        "<span style='font-family:var(--gaya-font); !important'>Karena sejak kamu ada, semuanya jauh lebih baik.</span>";
+      inip[4] =
+        "<span style='font-family:var(--gaya-font); !important'>Aku cuma mau bilang, aku nggak pengen kehilangan kamu.</span>";
+      inip[5] =
+        "<span style='font-family:var(--gaya-font); !important'>Jadi, kalau suatu saat kita menghadapi masalah atau perbedaan, kita hadapi bersama dan cari solusinya yaaa, jangan langsung pergi gitu aja.</span>";
+      inip[6] =
+        "<span style='font-family:var(--gaya-font3);font-size:19px !important'>I fucking love u <br> <span style='color:pink;''>Rahman Nur Afifah</span> 🤍💗 <br> I love u more than anything <br> I love u moreee and moreeee and moreeee and moreeeeee <br> &#128040 &#129293</span>";
+
+      totalPesan = 6;
+
+      function waktumuncul() {
+        setTimeout(kalimatakhir, 5100);
+        setTimeout(kalimatakhir, 9800);
+        setTimeout(kalimatakhir, 13300);
+        setTimeout(kalimatakhir, 16700);
+        setTimeout(kalimatakhir, 20500);
+        setTimeout(kalimatakhir, 28900);
+      }
+    </script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
